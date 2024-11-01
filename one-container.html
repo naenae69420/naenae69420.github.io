@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Nathan Le - oneContainer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+
+        body {
+            background-color: #5e6281cb;
+            position: relative;
+
+        }
+
+        .container {
+            position: absolute;
+            width: 798px;
+            height: 738px;
+            left: 500px;
+            z-index: -999;
+
+        }
+
+        #picture {
+            position: relative;
+            height: 300px;
+            width: 300px;
+            background-image: url('Walter.jpeg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            background-size: cover;
+            border-radius: 50%;
+            border: 5px solid #6b5151;
+            left: 250px;
+            top: 20px;
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
+            background-color: #e9e0e0;
+            top: -189px;
+            border-radius: 45px 45px 45px 45px;
+            background-color: #e9e0e0;
+            padding: 110px;
+            border: 5px solid #6b5151;
+
+        }
+
+
+        nav {
+            position: relative;
+            width: 100%;
+            height: 100px;
+            background-color: #e9e0e0;
+            color: #000000;
+            top: 125px;
+            bottom: 0px;
+            left: auto;
+
+        }
+
+        nav>a button {
+            background-color: #000000;
+            width: 183px;
+            height: 87px;
+            border-radius: 25px;
+            text-align: center;
+            border-color: #000000;
+            border-width: 0px;
+            border-style: solid;
+            color: #FFFFFF;
+            font-family: 'Lobster', cursive;
+            font-size: 20px;
+            font-style: italic;
+            font-weight: 400;
+            text-transform: lowercase;
+            text-decoration: none;
+
+        }
+
+
+
+        nav>a:hover button {
+            position: relative;
+            background-color: #E2C800;
+            color: #000000;
+            font-family: "Playfair Display", serif;
+            font-size: 20px;
+            font-style: italic;
+            font-weight: 800;
+            letter-spacing: 4px;
+            border-color: #000000;
+            border-width: 1px;
+            border-style: solid;
+        }
+
+     
+        #Walter {
+            position: relative;
+            font-weight: bold;
+            top: 125px;
+            left: 50px;
+            color: #000000;
+            font-family: 'Lobster', cursive;
+            font-size: 64px;
+
+        }
+        #about::first-letter {
+            font-family: "Playfair Display", serif;
+            font-size: 30px;
+            font-weight: 500;
+            font-style: oblique;
+
+        }
+        #about {
+            position: relative;
+            top: 100px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="picture"></div>
+        <div class="content">
+            <nav>
+                <a href="#about"><button>About</button></a>
+                <a href="#why"><button>Why</button></a>
+                <a href="#contact"><button>Contact</button></a>
+            </nav>
+            <p id="Walter">Walter the Dog</p>
+            <section id="about">
+                Walter is a buill terrier with a distinct facial expression that makes him loved and
+                gives others a sensation of joy. His comical expressions and personality makes him a
+                very charming and handsome dog.
+            </section>
+        </div>
+    </div>
+</body>
+</html>
