@@ -1,0 +1,118 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 32px;
+}
+#header {
+    margin: 64px;
+    height: 500px;
+}
+
+.upper-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 150px;
+}
+.logo {
+    font-family: 'Courier New', Courier, monospace; 
+    font-weight: bold;
+    font-size: 144px;
+    color: #d3d2c8;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+    letter-spacing: 4px;
+    transition: transform 0.3s, color 0.3s; 
+}
+.logo:hover {
+    color: #cfc4bf; 
+    transform: scale(1.1); 
+}
+
+#music {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1; 
+    filter: brightness(0.5);
+}
+
+#bodyInfo {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 64px;
+    color: white;
+    background-color: #640E0E;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgb(105, 14, 14),rgb(56, 9, 9)); 
+}
+.animated {
+    position: relative;
+    background-color: #e9e0e0;
+    overflow: hidden;
+    border-radius: 45px;
+    height: 200px;
+    width: 500px;
+    border: 5px solid #dddada;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Playfair Display", serif;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: #1d1b1b;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    animation: slideIn 1s ease-in;
+}
+
+.animated:hover {
+    color: #000000;
+    border-color: #000000;
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(11, 221, 211, 0.795);
+    transform: scale(1.05) rotate(3deg);
+    border-radius: 45px;
+    border: 5px solid #dddada;
+}
+
+.link-container {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+}
+
+#about {
+    color: white;
+    height: 200px;
+    margin-top: 400px;
+}
+
+.myself {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    background-color: #640E0E;
+    height: 400px;
+    display: flex;
+    gap: 200px;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgb(105, 14, 14),rgb(56, 9, 9)); 
+}
+
+@keyframes slideIn {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
+}
