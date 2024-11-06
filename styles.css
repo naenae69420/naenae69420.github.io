@@ -42,7 +42,11 @@ body {
     z-index: -1; 
     filter: brightness(0.5);
 }
-
+.Explore {
+    font-family: "Audiowide", sans-serif;;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    animation: slideIn 3s ease-in;
+}
 
 #bodyInfo {
     font-family: 'Courier New', Courier, monospace;
@@ -57,6 +61,8 @@ body {
     justify-content: center;
     align-items: center;
     background-image: linear-gradient(rgb(105, 14, 14),rgb(56, 9, 9)); 
+    border-radius: 45px;
+    border: 5px solid #9b9696;
 }
 .animated {
     position: relative;
@@ -94,6 +100,8 @@ body {
     display: flex;
     gap: 500px;
     justify-content: center;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    animation: slideIn 3s ease-in;
 }
 
 .containerTwo {
@@ -111,22 +119,86 @@ body {
 }
 
 .myself {
+    border-radius: 45px;
+    border: 5px solid #9b9696;
     display: flex;
     justify-content: center;
     flex-direction: column;
     padding: 32px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
-    font-size: 32px;
+    font-size: 24px;
     color: white;
     background-color: #640E0E;
     height: 400px;
     display: flex;
-    gap: 10px;
     justify-content: center;
     align-items: center;
     background-image: linear-gradient(rgb(105, 14, 14),rgb(56, 9, 9)); 
+    animation: slideIn 3s ease-in;
 }
+#about .myself h1 {
+    font-family: "Sofia", sans-serif;
+    font-size: 100px;
+}
+#about .myself article:hover {
+    color: #fcfdaa; 
+}
+
+#about .myself h1:hover {
+    color: #fcfdaa; 
+}
+.quoting {
+    background-color: #640E0E;
+    padding: 32px;
+    color: white;
+    font-size: 60px;
+    height: auto;
+    background-image: linear-gradient(rgb(105, 14, 14), rgb(56, 9, 9));
+    margin-top: 600px;
+    display: flex;
+    flex-direction: row;
+    font-family: "Sofia", sans-serif;
+    justify-content: space-evenly;
+    border-radius: 45px;
+    border: 5px solid #9b9696;
+    align-items: center;
+    animation: slideIn 3s ease-in;
+}
+
+.einstein {
+    height: 400px;
+    width: 400px;
+    border-radius: 45px;
+    border: 5px solid #dddada;
+}
+.arthur {
+    text-decoration: underline;
+    color: white;
+}
+.arthur:hover {
+    color: gold;
+}
+
+.rightHalf p {
+    margin: 0px;
+    font-family: "Audiowide", sans-serif;
+    font-size: 30px;
+}
+
+
+.footer {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    font-size: 16px;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    background-image: linear-gradient(rgb(24, 22, 22), rgb(56, 9, 9));
+}
+
 
 @keyframes slideIn {
     0% { transform: translateX(-100%); }
@@ -177,7 +249,7 @@ body {
     }
 
     #about {
-        margin-top: 50px; 
+        margin-top: 100px; 
         font-size: 30px;
     }
 
@@ -185,6 +257,28 @@ body {
         font-size: 24px;  
         padding: 10px;
         height: auto; 
+    }
+
+    .quoting {
+        flex-direction: column;
+        font-size: 40px;
+        justify-content: center;
+        margin-top: 50px;
+    }
+
+    #lowerhalf {
+        margin-top: 500px; 
+        font-size: 30px;
+    }
+
+    .einstein {
+        width: 300px;
+        height: 300px;
+    }
+
+    .footer {
+        font-size: 12px;
+        padding: 10px;
     }
 
     .containerTwo {
