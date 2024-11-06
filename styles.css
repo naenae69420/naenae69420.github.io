@@ -16,14 +16,15 @@ body {
     align-items: center;
     padding-top: 150px;
 }
-.logo {
-    font-family: 'Courier New', Courier, monospace; 
+#header .logo {
+    font-family: "Sofia", sans-serif;
     font-weight: bold;
     font-size: 144px;
-    color: #d3d2c8;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+    color: #ffffff;
+    text-shadow: 8px 8px 8px rgba(211, 20, 20, 0.7); 
     letter-spacing: 4px;
     transition: transform 0.3s, color 0.3s; 
+    
 }
 .logo:hover {
     color: #cfc4bf; 
@@ -41,16 +42,17 @@ body {
     filter: brightness(0.5);
 }
 
+
 #bodyInfo {
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
     font-size: 64px;
     color: white;
     background-color: #640E0E;
-    height: 400px;
+    height: 500px;
     display: flex;
     flex-direction: column;
-    gap: 80px;
+    gap: 60px;
     justify-content: center;
     align-items: center;
     background-image: linear-gradient(rgb(105, 14, 14),rgb(56, 9, 9)); 
@@ -86,10 +88,19 @@ body {
     border: 5px solid #dddada;
 }
 
+
 .link-container {
     display: flex;
-    gap: 40px;
+    gap: 500px;
     justify-content: center;
+}
+
+.containerTwo {
+    font-size: 32px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 #about {
@@ -99,14 +110,18 @@ body {
 }
 
 .myself {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 32px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 32px;
     color: white;
     background-color: #640E0E;
     height: 400px;
     display: flex;
-    gap: 200px;
+    gap: 10px;
     justify-content: center;
     align-items: center;
     background-image: linear-gradient(rgb(105, 14, 14),rgb(56, 9, 9)); 

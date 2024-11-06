@@ -1,0 +1,61 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #640E0E;
+    background-image: linear-gradient(rgb(67, 60, 129),rgb(41, 22, 71)); 
+    background-attachment: fixed;
+}
+
+.header {
+    height: 200px;
+    font-weight: bold;
+    color: white;
+    font-size: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Sofia", sans-serif;
+    text-shadow: 8px 8px 8px rgba(211, 20, 20, 0.7); 
+    letter-spacing: 4px;
+    transition: transform 0.3s, color 0.3s; 
+    gap: 100px;
+}
+
+.playlists {
+    background: #000000;
+    background-image: linear-gradient(rgb(20, 10, 34), rgb(49, 33, 51)); 
+    margin-top: 150px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 500px;
+}
+
+.playlists iframe {
+    transition: transform 0.3s ease;
+}
+
+.playlists iframe:hover {
+    transform: scale(1.05);  
+    box-shadow: 0px 0px 40px rgba(213, 228, 0, 0.5); 
+}
+
+.homepage {
+    font-family: "Audiowide", sans-serif;
+    margin-top: 0px;
+    font-size: 100px;
+    color: rgb(150, 97, 97);
+    display: flex;
+    justify-content: flex-end;
+}
+.homepage a{
+    font-size: 50px;
+    color: white; 
+    text-decoration: underline; 
+    letter-spacing: 4px;
+    text-shadow: 4px 4px 4px rgba(211, 20, 20, 0.7); 
+}
+
+.homepage a:hover {
+    transform: scale(1.05);  
+    color: #f3c806;  
+}
