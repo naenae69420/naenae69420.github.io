@@ -133,7 +133,7 @@ body {
 }
 
 /* if max width < 950*/
-@media (max-width: 950px) {
+@media only screen and (max-width: 950px) {
     body {
         font-size: 16px;  
         flex-direction: column;

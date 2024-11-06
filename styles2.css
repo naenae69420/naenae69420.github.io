@@ -60,7 +60,7 @@ body {
     color: #f3c806;  
 }
 /* For responsiveness, if width < 800 for mobile*/
-@media (max-width: 800px) {
+@media only screen and (max-width: 800px) {
     .header {
         font-size: 30px;
     }
