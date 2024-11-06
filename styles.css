@@ -263,13 +263,10 @@ body {
         flex-direction: column;
         font-size: 40px;
         justify-content: center;
-        margin-top: 50px;
+        margin-top: 1000px;
     }
 
-    #lowerhalf {
-        margin-top: 1000px; 
-        font-size: 30px;
-    }
+ 
 
     .einstein {
         width: 300px;
