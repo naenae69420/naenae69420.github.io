@@ -124,7 +124,7 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding: 32px;
+    padding: 16px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
     font-size: 24px;
@@ -139,7 +139,7 @@ body {
 }
 #about .myself h1 {
     font-family: "Sofia", sans-serif;
-    font-size: 100px;
+    font-size: 64px;
 }
 #about .myself article:hover {
     color: #fcfdaa; 
@@ -254,9 +254,11 @@ body {
     }
 
     .myself {
-        font-size: 24px;  
-        padding: 10px;
-        height: auto; 
+        font-size: 16px;  
+    }
+
+    .myself h1 {
+        font-size: 16px;
     }
 
     .quoting {
