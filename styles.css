@@ -132,8 +132,8 @@ body {
     100% { transform: translateX(0); }
 }
 
-/* if max width < 950*/
-@media only screen and (max-width: 950px) {
+/* if max width < 1200*/
+@media only screen and (max-width: 1200px) {
     body {
         font-size: 16px;  
         flex-direction: column;
@@ -184,5 +184,15 @@ body {
         font-size: 24px;  
         padding: 10px;
         height: auto; 
+    }
+
+    .containerTwo {
+        font-size: 16px;
+    }
+    .containerTwo .animated .headphones {
+        height: 200px;
+    }
+    .containerTwo .animated .spotify {
+        height: 320px;
     }
 }
