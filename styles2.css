@@ -16,8 +16,12 @@ body {
     font-family: "Sofia", sans-serif;
     text-shadow: 8px 8px 8px rgba(211, 20, 20, 0.7); 
     letter-spacing: 4px;
-    transition: transform 0.3s, color 0.3s; 
+    transition: transform 0.3s;
     gap: 100px;
+}
+
+.header:hover {
+    transform: scale(1.1); 
 }
 
 .playlists {

@@ -24,7 +24,7 @@ body {
     color: #ffffff;
     text-shadow: 8px 8px 8px rgba(211, 20, 20, 0.7); 
     letter-spacing: 4px;
-    transition: transform 0.3s, color 0.3s; 
+    transition: transform 0.3s;
     
 }
 .logo:hover {
@@ -76,7 +76,7 @@ body {
     letter-spacing: 4px;
     color: #1d1b1b;
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-    animation: slideIn 1s ease-in;
+    animation: slideIn 3s ease-in;
 }
 
 .animated:hover {
