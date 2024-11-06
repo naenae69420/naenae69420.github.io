@@ -131,3 +131,58 @@ body {
     0% { transform: translateX(-100%); }
     100% { transform: translateX(0); }
 }
+
+/* if max width < 950*/
+@media (max-width: 950px) {
+    body {
+        font-size: 16px;  
+        flex-direction: column;
+    }
+
+    #header {
+        margin: 15px;
+        height: 300px;  
+    }
+
+    .upper-header {
+        flex-direction: column; 
+        padding-top: 50px; 
+    }
+
+    #header .logo {
+        font-size: 72px;  
+        text-align: center;
+    }
+
+    #music {
+        height: auto;
+    }
+
+    #bodyInfo {
+        font-size: 24px;  
+        height: auto; 
+        padding: 20px;
+    }
+
+    .animated {
+        width: 80%;  
+        height: 130px; 
+        font-size: 16px;  
+    }
+
+    .link-container {
+        flex-direction: column;  
+        gap: 10px;  
+    }
+
+    #about {
+        margin-top: 50px; 
+        font-size: 30px;
+    }
+
+    .myself {
+        font-size: 24px;  
+        padding: 10px;
+        height: auto; 
+    }
+}

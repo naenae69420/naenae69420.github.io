@@ -59,3 +59,24 @@ body {
     transform: scale(1.05);  
     color: #f3c806;  
 }
+/* For responsiveness, if width < 800 for mobile*/
+@media (max-width: 800px) {
+    .header {
+        font-size: 30px;
+    }
+
+    .playlists {
+        flex-direction: column; 
+        margin-top: 50px;
+        height: auto;
+    }
+
+    .playlists iframe {
+        width: 70%;
+    }
+
+    .homepage a {
+        font-size: 16px; 
+        padding: 10px 20px;  
+    }
+}
