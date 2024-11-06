@@ -4,6 +4,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     font-size: 32px;
+    background-color: #272424;
 }
 #header {
     margin: 64px;
