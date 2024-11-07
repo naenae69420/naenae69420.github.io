@@ -3,7 +3,7 @@ body {
     display: flex;
     flex-direction: column;
     background-image: url(./videoPlayer/hollowknight.jpg);
-    background-size: cover;
+    background-size: contain;
 }
 
 
