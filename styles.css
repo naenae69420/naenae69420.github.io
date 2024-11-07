@@ -100,7 +100,7 @@ body {
 
 .link-container {
     display: flex;
-    gap: 500px;
+    gap: 400px;
     justify-content: center;
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
     animation: slideIn 3s ease-in;
@@ -108,10 +108,7 @@ body {
 
 .containerTwo {
     font-size: 30px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
 }
 
 #about {
