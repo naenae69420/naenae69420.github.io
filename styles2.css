@@ -1,11 +1,11 @@
 body {
     font-family: 'Courier New', Courier, monospace;
-    background-color: #640E0E;
-    background-image: linear-gradient(rgb(67, 60, 129),rgb(41, 22, 71)); 
-    background-attachment: fixed;
     display: flex;
     flex-direction: column;
+    background-image: url(./videoPlayer/hollowknightresized.jpg);
+    background-size: cover;
 }
+
 
 .header {
     height: 200px;
@@ -27,8 +27,7 @@ body {
 }
 
 .playlists {
-    background: #000000;
-    background-image: linear-gradient(rgb(20, 10, 34), rgb(49, 33, 51)); 
+    background-color: rgba(0, 0, 0, 0.5);
     margin-top: 150px;
     display: flex;
     justify-content: space-evenly;
@@ -69,7 +68,7 @@ body {
 .pictureHalf {
     display: flex;
     margin-top: 200px;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.5);
     justify-content: space-between;
     padding: 20px;
 }
@@ -103,10 +102,11 @@ body {
     font-size: 16px;
     color: white;
     font-family: 'Courier New', Courier, monospace;
-    background-image: linear-gradient(rgb(53, 19, 75), rgb(70, 29, 88));
+    background-color: rgba(0, 0, 0, 0.9);
     margin-top: auto;
 
 }
+
 /* For responsiveness, if width < 800 for mobile*/
 @media only screen and (max-width: 800px) {
     .header {
