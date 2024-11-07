@@ -66,6 +66,35 @@ body {
     color: #f3c806;  
 }
 
+.pictureHalf {
+    display: flex;
+    margin-top: 200px;
+    background-color: rgba(0, 0, 0, 0.3);
+    justify-content: space-between;
+    padding: 20px;
+}
+.containerPicture {
+    justify-content: right;
+    align-items: end;
+}
+
+.text {
+    display: flex;
+    align-items: center;
+    font-family: "Audiowide", sans-serif;
+    font-size: 64px;
+    color: #f8f8f8
+}
+
+.Spotify {
+    text-decoration: underline;
+    color: white;
+}
+
+.Spotify:hover {
+    color: gold;
+}
+
 .footer {
     display: flex;
     justify-content: center;
@@ -98,6 +127,24 @@ body {
         font-size: 16px; 
         padding: 10px 20px;  
     }
+    .pictureHalf {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 45px;
+    }
+
+    .containerPicture {
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .text {
+        font-size: 20px;
+        margin-top: 20px;
+        text-align: center;
+    }
+
     .footer {
         font-size: 12px;
         padding: 10px;

@@ -24,12 +24,13 @@ body {
     color: #ffffff;
     text-shadow: 8px 8px 8px rgba(211, 20, 20, 0.7); 
     letter-spacing: 4px;
-    transition: transform 0.3s;
-    
+    position: relative;
+    animation: slideInScale 2s ease-out forwards;
 }
-.logo:hover {
-    color: #cfc4bf; 
-    transform: scale(1.1); 
+
+#header .logo:hover {
+    color: #e4e3da; 
+    transform: scale(1.1) !important; /* Apparantly this commands make it take precedence over animation*/
 }
 
 #music {
@@ -45,7 +46,7 @@ body {
 .Explore {
     font-family: "Audiowide", sans-serif;;
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-    animation: slideIn 3s ease-in;
+    animation: slideInScale 4s ease-out forwards;
 }
 
 #bodyInfo {
@@ -81,15 +82,16 @@ body {
     font-weight: 800;
     letter-spacing: 4px;
     color: #1d1b1b;
+    animation: slideIn 6s ease-in forwards;
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-    animation: slideIn 3s ease-in;
+    animation: glow 1.5s ease-in-out infinite;
+    
 }
 
 .animated:hover {
     color: #000000;
     border-color: #000000;
     transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(11, 221, 211, 0.795);
     transform: scale(1.05) rotate(3deg);
     border-radius: 45px;
     border: 5px solid #dddada;
@@ -168,10 +170,16 @@ body {
 
 .einstein {
     height: 400px;
-    width: 400px;
+    width: 600px;
     border-radius: 45px;
     border: 5px solid #dddada;
+    transition: transform 0.3s;    
 }
+
+.einstein:hover {
+    transform: scale(1.1); 
+}
+  
 .arthur {
     text-decoration: underline;
     color: white;
@@ -199,10 +207,33 @@ body {
     background-image: linear-gradient(rgb(24, 22, 22), rgb(56, 9, 9));
 }
 
+@keyframes glow {
+    0% {
+        box-shadow: 0 0px 65px rgba(212, 192, 13, 0.973);
+    }
+    50% {
+        box-shadow: 0 0px 45px rgba(13, 199, 212, 0.6);
+    }
+    100% {
+        box-shadow: 0 0px 65px rgba(212, 192, 13, 0.973);
+    }
+}
 
 @keyframes slideIn {
     0% { transform: translateX(-100%); }
     100% { transform: translateX(0); }
+}
+
+@keyframes slideInScale {
+    0% {
+        transform: translateX(-100%) scale(0.5);
+    }
+    80% {
+        transform: translateX(0) scale(0.5); 
+    }
+    100% {
+        transform: translateX(0) scale(1); 
+    }
 }
 
 /* if max width < 1200*/
@@ -265,7 +296,7 @@ body {
         flex-direction: column;
         font-size: 40px;
         justify-content: center;
-        margin-top: 500px;
+        margin-top: 400px;
     }
 
  
