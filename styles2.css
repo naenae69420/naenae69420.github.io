@@ -2,7 +2,7 @@ body {
     font-family: 'Courier New', Courier, monospace;
     display: flex;
     flex-direction: column;
-    background-image: url(./videoPlayer/hollowknightresized.jpg);
+    background-image: url(./videoPlayer/hollowknight.jpg);
     background-size: cover;
 }
 
