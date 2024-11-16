@@ -77,6 +77,7 @@ console.log(max.output());
 
 // create an array 
 let newArray = ["Bob", "Amy", "Robert", "Dave"];
+console.log(newArray);
 
 // call the value in the 3 position of this array and output to console 
 
