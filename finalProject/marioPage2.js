@@ -246,7 +246,7 @@ function applyPowerUp(character, powerUp) {
             }
             break;
         case "Rocket":
-            if (character.speed >= 0.4) {
+            if (character.speed >= 0.45) {
                 character.total += character.speed * 100;
             } else {
                 character.total += 200;
@@ -254,8 +254,8 @@ function applyPowerUp(character, powerUp) {
             break;
         case "Slow":
             character.speed = (parseFloat(character.speed) - 0.25).toFixed(2); 
-            if (character.speed <= 0.01) {
-                character.speed = 0.15;
+            if (character.speed <= 0.2) {
+                character.speed = 0.2;
             }
     }
 }
