@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    background-color: #f5f5f5;
+    background-image: url(images/space.jpg);
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column; 
+    width: 70%;
+    padding: 20px;
+    gap: 100px;
+}
+
+.character-container {
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px; 
+    justify-content: start; 
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.character-container div {
+    width: 120px; 
+    height: 180px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+    text-align: center;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.character-container .character-name {
+    font-weight: bold;
+    margin-bottom: 10px; 
+}
+
+.character-container .character-speed {
+    font-size: 14px;
+    color: #555;
+}
+
+.infoGameContainer {
+    width: 50%;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.infoGameContainer h1 {
+    color: white;
+    font-weight: bold;
+    font-size: 48px;
+}
+
+.main-container h1 {
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    font-size: 48px;
+}
+
+.text-container {
+    margin-bottom: 20px;
+}
+
+.text-line {
+    display: flex;
+    gap: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.clickable-word {
+    cursor: pointer;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.clickable-word:hover {
+    text-decoration: underline;
+}
+
+#info-container {
+    height: auto;
+    padding-top: 10px;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+#readyButton, #continueButton {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #4CAF50; 
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px; 
+}
+
+#readyButton:hover, #continueButton:hover {
+    background-color: #326e35; 
+}
+
+#continueButton {
+    display: none;
+}

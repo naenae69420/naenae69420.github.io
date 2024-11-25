@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mario Character API</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <div id="titleHeader" class="headerStyle">Mario Kart Remastered</div>
+    </div>
+
+    <div class="bothSides">
+        <div class="about">
+            <h2>Game Rules and About</h2>
+            <p>Mario Kart Remastered is my own take on Mario Kart, but as a web application! The goal is essentially
+                to get to 500 points. By racing other opponents via your speed, one will have an advantage over the
+                other based on that. However, the game also provides powerups and items, similar to that of the original game.
+                Race against your opponents, and may RNG be on your side!
+            </p>
+        </div>
+        <div class="app-container">
+            <h1>Select a Mario Character</h1>
+            <!-- Dropdown list of characters -->
+            <select id="characterSelect">
+                <option value="">Select a character</option>
+                <option value="mario">Mario</option>
+                <option value="luigi">Luigi</option>
+                <option value="princess peach">Princess Peach</option>
+                <option value="bowser">Bowser</option>
+                <option value="yoshi">Yoshi</option>
+                <option value="wario">Wario</option>
+                <option value="donkey kong">Donkey Kong</option>
+                <option value="diddy kong">Diddy Kong</option>
+                <option value="toad">Toad</option>
+                <option value="goomba">Goomba</option>
+                <option value="koopa troopa">Koopa Troopa</option>
+                <option value="princess daisy">Princess Daisy</option>
+                <option value="rosalina">Rosalina</option>
+                <option value="toadette">Toadette</option>
+                <option value="bowser jr">Bowser Jr.</option>
+                <option value="waluigi">Waluigi</option>
+                <option value="shy guy">Shy Guy</option>
+            </select>
+            
+            <div id="results">
+                <h2 id="name"></h2>
+                <p><strong>Strength:</strong> <span id="strength"></span></p>
+                <p><strong>Origin:</strong> <span id="origin"></span></p>
+                <img id="character-image" alt="Character image" style="max-width: 300px">
+            </div>
+            <div class="continue">
+                <button id="continueButton" disabled onclick="saveCharacter();">Continue as your character</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="marioPage1.js"></script>
+</body>
+</html>

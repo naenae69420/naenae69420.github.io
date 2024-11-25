@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mario Character Selection</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="firstContent">
+            <div class="section">
+                <h1>Your Mario Character</h1>
+                <div class="character-container" id="selected-character-container"></div>
+            </div>
+        </div>
+
+        <div class="secondContent">
+            <div class="section">
+                <h1>Your Opponents</h1>
+                <div class="character-container" id="opponent-characters-container"></div>
+            </div>
+        </div>
+
+        <button id="readyButton">Ready</button>
+    </div>
+
+    <!-- Power-up information section -->
+    <div class="infoGameContainer">
+        <div class="text-container">
+            <h1>PowerUps Information</h1>
+            <div class="text-line">
+                <div class="clickable-word" id="Empty">Empty</div>
+                <div class="clickable-word" id="Boost">Boost</div>
+                <div class="clickable-word" id="Shell">Shell</div>
+                <div class="clickable-word" id="Lightning">Lightning</div>
+                <div class="clickable-word" id="Banana">Banana</div>
+                <div class="clickable-word" id="Rocket">Rocket</div>
+            </div>
+            <div id="info-container">
+                <p>Click any image for more information</p>
+            </div>
+        </div>
+        
+        <div id="final-rankings-container"></div>
+
+        <button id="continueButton">Continue</button>
+    </div>
+
+    <script src="marioPage2.js"></script>
+</body>
+
+</html>
