@@ -300,10 +300,6 @@ function setupWordInteractivity() {
             text: "Decreases your overall speed",
             image: "images/slow.png"
         },
-        Lightning: {
-            text: "Strikes all opponents, reducing their size and speed temporarily.",
-            image: ""
-        },
         Banana: {
             text: "You get setback in points!",
             image: "images/banana.png"

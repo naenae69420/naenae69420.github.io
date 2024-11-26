@@ -185,6 +185,10 @@ h2.title {
     justify-content: center;
     align-items: center;
     font-size: 28px;
+    opacity: 0;
+    transform: translateY(30%);
+    animation: slideIn 3s ease-out forwards;
+    animation-delay: 2s;
 }
 
 .rightSide h3 {
