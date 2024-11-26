@@ -55,6 +55,7 @@ body {
 
 .about h2, .app-container h1 {
     font-family: 'Super Pixel', sans-serif;
+    color: #c5bfbf;
 }
 
 .app-container {
@@ -109,7 +110,7 @@ img {
 
 .kartSection h1 {
     font-family: 'Super Pixel';
-    color: white;
+    color: #c5bfbf;
     font-size: 2rem;
 }
 .kartSection p {
@@ -137,8 +138,8 @@ img {
 
 
 @keyframes glowPulse {
-    0% { text-shadow: 0 0 5px #ff0000, 0 0 10px #ff4500, 0 0 15px #ff8c00, 
-        0 0 20px #ff8c00, 0 0 35px #ffa500, 0 0 40px #ffa500; }
-    100% { text-shadow: 0 0 15px #ff0000, 0 0 25px #ff4500, 0 0 35px #ff8c00, 
-        0 0 50px #ff8c00, 0 0 70px #ffa500, 0 0 90px #ffa500; }
+    0% { text-shadow: 0 0 5px #001aff, 0 0 10px #001aff, 0 0 15px #001aff, 
+        0 0 20px #071044, 0 0 35px #071044, 0 0 40px #071044; }
+    100% { text-shadow: 0 0 15px #0099ff, 0 0 25px #0099ff, 0 0 35px #0099ff, 
+        0 0 50px #071044, 0 0 70px #071044, 0 0 90px #071044; }
 }

@@ -182,8 +182,17 @@ function handleLap() {
                 finishLap: character.finishLap
             };
         });
+        const allPlayers = rankedPlayers.slice(0, 5).map(playerName => {
+            const character = characters.find(c => c.name === playerName);
+            return {
+                name: character.name,
+                speed: character.speed,
+                total: character.total,
+                finishLap: character.finishLap
+            };
+        });
         localStorage.setItem('topThreePlayers', JSON.stringify(topThree));
-        localStorage.setItem('allRankedPlayers', JSON.stringify(topThree));
+        localStorage.setItem('allRankedPlayers', JSON.stringify(allPlayers));
 
         const continueButton = document.getElementById('continueButton');
         continueButton.style.display = 'block';

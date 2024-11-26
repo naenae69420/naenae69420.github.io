@@ -42,59 +42,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     }
    
-   function listRaceParticipants(allRankedPlayers) {
-       // Console log of all participants
-       console.log("Race Participants:");
-       allRankedPlayers.forEach((player, index) => {
-           console.log(`${index + 1}. ${player.name} - Finished at Lap ${player.finishLap}`);
-       });
+    function listRaceParticipants(allRankedPlayers) {
    
-       // Create participants list container
-       const participantsListContainer = document.createElement('div');
-       participantsListContainer.id = 'race-participants-list';
-       participantsListContainer.style.cssText = `
-           position: fixed;
-           top: 20px;
-           right: 20px;
-           background-color: rgba(0,0,0,0.7);
-           color: white;
-           padding: 15px;
-           border-radius: 10px;
-           z-index: 1000;
-           min-width: 200px;
-           max-height: 80vh;
-           overflow-y: auto;
-       `;
-   
-       const listTitle = document.createElement('h3');
-       listTitle.textContent = 'Race Rankings';
-       listTitle.style.textAlign = 'center';
-       listTitle.style.marginBottom = '10px';
-       participantsListContainer.appendChild(listTitle);
-   
-       // Create a list element
-       const participantsList = document.createElement('ul');
-       participantsList.style.listStyleType = 'none';
-       participantsList.style.padding = '0';
-       participantsList.style.margin = '0';
-   
-       // Sort players by finish lap (or rank if available)
-       const sortedPlayers = allRankedPlayers.sort((a, b) => 
-           (a.finishLap || a.finishRank || Infinity) - (b.finishLap || b.finishRank || Infinity)
-       );
-   
-       sortedPlayers.forEach((player, index) => {
-           const playerEntry = document.createElement('li');
-           playerEntry.textContent = `${index + 1}. ${player.name} - Lap ${player.finishLap}`;
-           playerEntry.style.margin = '5px 0';
-           playerEntry.style.padding = '5px';
-           playerEntry.style.borderBottom = '1px solid rgba(255,255,255,0.2)';
-           participantsList.appendChild(playerEntry);
-       });
-   
-       participantsListContainer.appendChild(participantsList);
-       document.body.appendChild(participantsListContainer);
-   }
+        
+        const participantsListContainer = document.getElementById('race-participants-list');
+        const participantsList = document.getElementById('participants-list');
+    
+      
+        participantsList.innerHTML = '';
+    
+        
+        const sortedPlayers = allRankedPlayers.sort((a, b) => 
+            (a.finishLap || a.finishRank || Infinity) - (b.finishLap || b.finishRank || Infinity)
+        );
+    
+        sortedPlayers.forEach((player, index) => {
+            const playerEntry = document.createElement('li');
+            playerEntry.innerHTML = `<strong">${index + 1}</strong>. <strong style="color: gold;">${player.name}</strong> - Lap ${player.finishLap}`;
+            participantsList.appendChild(playerEntry);
+        });
+    }
+
 particlesJS('particles-js', {
     particles: {
         number: {
@@ -105,14 +73,14 @@ particlesJS('particles-js', {
             }
         },
         shape: {
-            type: 'star',  // Using star shape for celebration
+            type: 'star',  
             stroke: {
                 width: 0,
                 color: '#000000'
             }
         },
         color: {
-            value: ['#FFD700', '#C0C0C0', '#CD7F32'], // Gold, Silver, Bronze colors for first, second, and third places
+            value: ['#FFD700', '#C0C0C0', '#CD7F32'], 
         },
         opacity: {
             value: 0.7,
