@@ -124,7 +124,7 @@ body {
     width: 100%;
     padding: 10px;
     font-size: 16px;
-    background-color: #4CAF50; 
+    background-color: #007bff; 
     color: white;
     border: none;
     border-radius: 8px;
@@ -133,7 +133,7 @@ body {
 }
 
 #readyButton:hover, #continueButton:hover {
-    background-color: #326e35; 
+    background-color: #0056b3; 
 }
 
 #continueButton {
