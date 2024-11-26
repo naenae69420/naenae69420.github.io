@@ -99,9 +99,9 @@ h2.title {
     display: inline-block;
     margin: 20px;
     padding: 15px 40px;
-    background-color: #941212; /* Vibrant red-orange */
+    background-color: #941212; 
     color: white;
-    border: 3px solid #420606; /* Darker red border for contrast */
+    border: 3px solid #420606;
     border-radius: 12px;
     cursor: pointer;
     font-size: 20px;
@@ -154,6 +154,15 @@ h2.title {
 
 .first-place {
     animation-delay: 1.5s;
+}
+
+#particles-js {
+    width: 100%;
+    height: 100vh; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; 
 }
 
 @keyframes glow {

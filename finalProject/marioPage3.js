@@ -42,3 +42,66 @@ async function displayTopThree(topThree) {
         }
     }
 }
+
+particlesJS('particles-js', {
+    particles: {
+        number: {
+            value: 150,
+            density: {
+                enable: true,
+                value_area: 800
+            }
+        },
+        shape: {
+            type: 'star',  // Using star shape for celebration
+            stroke: {
+                width: 0,
+                color: '#000000'
+            }
+        },
+        color: {
+            value: ['#FFD700', '#C0C0C0', '#CD7F32'], // Gold, Silver, Bronze colors for first, second, and third places
+        },
+        opacity: {
+            value: 0.7,
+            random: true,
+            anim: {
+                enable: true,
+                speed: 1,
+                opacity_min: 0.1,
+                sync: false
+            }
+        },
+        size: {
+            value: 5,
+            random: true,
+            anim: {
+                enable: true,
+                speed: 3,
+                size_min: 1,
+                sync: false
+            }
+        },
+        move: {
+            enable: true,
+            speed: 8,
+            direction: 'bottom',
+            random: true,
+            straight: false,
+            out_mode: 'out',
+            bounce: false
+        }
+    },
+    interactivity: {
+        detect_on: 'canvas',
+        events: {
+            onhover: {
+                enable: false
+            },
+            onclick: {
+                enable: false
+            }
+        }
+    },
+    retina_detect: true
+});

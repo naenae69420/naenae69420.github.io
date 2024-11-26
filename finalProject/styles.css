@@ -44,7 +44,7 @@ body {
 
 .about {
     color: white;
-    font-size: 1.0rem;
+    font-size: 1.25rem;
     text-align: center;
     background-color: #ffffff;
     background: rgba(0, 0, 0, 0.5);
@@ -96,6 +96,29 @@ button:hover {
 img {
     margin-top: 15px;
     border-radius: 8px;
+}
+
+.kartSection {
+    display: flex;
+    padding: 32px;
+    gap: 64px;
+    background: rgba(0, 0, 0, 0.5);
+    width: 90%;
+    border-radius: 10px;
+}
+
+.kartSection h1 {
+    font-family: 'Super Pixel';
+    color: white;
+    font-size: 2rem;
+}
+.kartSection p {
+    color: white;
+}
+
+.vid {
+    border: 8px solid #111111; 
+    border-radius: 8px; 
 }
 
 @font-face {

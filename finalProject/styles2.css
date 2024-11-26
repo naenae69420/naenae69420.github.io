@@ -21,7 +21,7 @@ body {
     flex-direction: column; 
     width: 70%;
     padding: 20px;
-    gap: 100px;
+    gap: 50px;
 }
 
 .section h1 {
