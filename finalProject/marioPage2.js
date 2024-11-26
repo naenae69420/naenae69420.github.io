@@ -60,6 +60,10 @@ async function displayCharacters(selectedCharacter, randomCharacters) {
     }
 }
 
+function capitalizeFirstLetter(name) {
+    return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+}
+
 async function fetchCharacterData(characterName, container) {
     try {
         const response = await fetch(`https://super-mario-bros-character-api.onrender.com/api/${characterName}`);
@@ -72,14 +76,16 @@ async function fetchCharacterData(characterName, container) {
 
         const speed = (Math.random() * 0.9 + 0.1).toFixed(2);
 
+        const characterNameCapitalized = capitalizeFirstLetter(data.name);
+
         container.innerHTML = `
-            <h3>${data.name}</h3>
-            <img src="${data.image}" alt="${data.name}" style="max-height: 150px; width: auto;">
+            <h3>${characterNameCapitalized}</h3>  <!-- Display the capitalized name -->
+            <img src="${data.image}" alt="${characterNameCapitalized}" style="max-height: 150px; width: auto;">
             <p>Speed: ${speed}</p>
         `;
 
         const character = {
-            name: data.name,
+            name: characterNameCapitalized,
             speed: parseFloat(speed),
             image: data.image,
             total: 0
