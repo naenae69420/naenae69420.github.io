@@ -7,11 +7,28 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-position: center;
+    background-size: cover;
     background-attachment: fixed;
 }
 
-h2.title {
+.header {
+    font-size: 48px;
     color: white;
+    font-weight: bold;
+    padding: 16px;
+    font-family: 'Super Pixel', sans-serif;
+}
+
+.header.glow {
+    font-size: 80px;
+    -webkit-animation: glow 2s ease-in-out infinite alternate;
+    -moz-animation: glow 2s ease-in-out infinite alternate;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+h2.title {
+    color: rgb(139, 132, 132);
     text-align: center;
     font-size: 2.5em;
     margin-bottom: 40px;
@@ -79,27 +96,40 @@ h2.title {
 
 #playAgainButton,
 #returnHome {
-    display: block;
-    margin: 40px auto 20px;
-    padding: 15px 30px;
-    background-color: #4CAF50;
+    display: inline-block;
+    margin: 20px;
+    padding: 15px 40px;
+    background-color: #941212; /* Vibrant red-orange */
     color: white;
-    border: none;
-    border-radius: 5px;
+    border: 3px solid #420606; /* Darker red border for contrast */
+    border-radius: 12px;
     cursor: pointer;
-    font-size: 18px;
-    transition: background-color 0.3s ease;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 0 #380303;
 }
 
 #playAgainButton:hover,
 #returnHome:hover {
-    background-color: #1b491e;
+    background-color: #9c3737;
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 5px rgba(0, 0, 0, 0.2);
 }
 
 .buttonArea {
     display: flex;
     justify-content: center;
     gap: 40px;
+}
+
+
+@font-face {
+    font-family: 'Super Pixel';
+    src: url('fonts/SuperPixel.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
 }
 
 @keyframes slideIn {
@@ -124,4 +154,13 @@ h2.title {
 
 .first-place {
     animation-delay: 1.5s;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #941212, 0 0 20px #941212, 0 0 30px #941212, 0 0 40px #941212, 0 0 50px #941212, 0 0 60px #941212, 0 0 70px #941212;
+    }
+    to {
+        text-shadow: 0 0 20px #e05c5c, 0 0 30px #e05c5c, 0 0 40px #e05c5c, 0 0 50px #e05c5c, 0 0 60px #e05c5c, 0 0 70px #e05c5c, 0 0 80px #e05c5c;
+    }
 }

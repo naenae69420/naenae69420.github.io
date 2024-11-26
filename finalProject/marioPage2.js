@@ -101,12 +101,12 @@ let raceCompleted = false;
 let rankedPlayers = [];
 
 function updateInfoContainer() {
-    const infoContainer = document.getElementById('info-container');
+    const infoContainer = document.getElementById('LapsContainer');
     infoContainer.innerHTML = '';
     
     const lapText = document.createElement('p');
-    lapText.textContent = `LAP ${currentLap}`;
-    lapText.style.fontSize = "20px";
+    lapText.innerHTML = `<strong>LAP</strong> ${currentLap}`;
+    lapText.style.fontSize = "30px";
     lapText.style.fontWeight = "bold";
     lapText.style.marginBottom = "20px";
     lapText.style.color = "#ffffff";
@@ -116,7 +116,8 @@ function updateInfoContainer() {
     characters.forEach(character => {
         if (character.speed > 0 && character.total > 0) {
             const characterInfo = document.createElement('p');
-            characterInfo.innerHTML = `${character.name}: Speed <strong>${character.speed}</strong>, Total: <strong>${character.total}</strong>`;
+            characterInfo.innerHTML = `<strong style="color: #db6635;">${character.name}</strong>: Speed <strong style="color: #db6635;">${character.speed}</strong>, Total: <strong style="color: #db6635;">${character.total}</strong>`;
+            characterInfo.style.color = "white";
             infoContainer.appendChild(characterInfo);
         }
     });
@@ -139,7 +140,7 @@ function handleLap() {
             
                 const rankingsContainer = document.getElementById('final-rankings-container');
                 const rankAnnouncement = document.createElement('p');
-                rankAnnouncement.textContent = `${getOrdinal(rankedPlayers.length)} place: ${character.name}`;
+                rankAnnouncement.innerHTML = `${getOrdinal(rankedPlayers.length)} place: <span style="color: #db6635;">${character.name}</span>`;
                 rankAnnouncement.style.fontSize = "20px";
                 rankAnnouncement.style.color = "#ffffff";
 
@@ -157,13 +158,14 @@ function handleLap() {
         raceCompleted = true;
         
         const rankingsContainer = document.getElementById('final-rankings-container');
-        rankingsContainer.innerHTML = '<h2 style="color: white;">Final Rankings</h2>';
+        rankingsContainer.innerHTML = '<h2 style="color: white; font-size: 30px; font-weight: bold; margin-top: 15px;">Final Rankings</h2>';
+
         
         rankedPlayers.forEach((playerName, index) => {
             const rankMessage = document.createElement('p');
-            rankMessage.textContent = `${getOrdinal(index + 1)} place: ${playerName}`;
+            rankMessage.innerHTML = `${getOrdinal(index + 1)} place: <strong style="color: #db6635;">${playerName}</strong>`;
+
             rankMessage.style.fontSize = "20px";
-            rankMessage.style.fontWeight = "bold";
             rankMessage.style.color = "#ffffff";
 
             rankingsContainer.appendChild(rankMessage);
@@ -210,9 +212,8 @@ function assignPowerUps() {
         console.log(powerUp);
 
         const powerUpMessage = document.createElement('p');
-        powerUpMessage.textContent = `${character.name} received a power-up: ${powerUp}`;
+        powerUpMessage.innerHTML = `<strong style="color: #e1a126;">${character.name}</strong> received a power-up: <strong style="color: #e1a126;">${powerUp}</strong>`;
         powerUpMessage.style.fontSize = "20px";
-        powerUpMessage.style.fontWeight = "bold";
         powerUpMessage.style.color = "#ffffff";
 
         rankingsContainer.appendChild(powerUpMessage);
@@ -275,12 +276,30 @@ document.getElementById('readyButton').addEventListener('click', () => {
 function setupWordInteractivity() {
     // Information for each word
     const infoData = {
-        Empty: "Gain no powerups! Quite the unfortunate event",
-        Boost: "Gives your character a speed increase for a short time.",
-        Slow: "Decreases your overall speed",
-        Lightning: "Strikes all opponents, reducing their size and speed temporarily.",
-        Banana: "You get setback in points!",
-        Rocket: "Provides a boost, propelling you forward at super high speed."
+        Empty: {
+            text: "Gain no powerups! Quite the unfortunate event",
+            image: "images/empty.png"
+        },
+        Boost: {
+            text: "Gives your character a speed increase for a short time.",
+            image: "images/boost.png"
+        },
+        Slow: {
+            text: "Decreases your overall speed",
+            image: "images/slow.png"
+        },
+        Lightning: {
+            text: "Strikes all opponents, reducing their size and speed temporarily.",
+            image: ""
+        },
+        Banana: {
+            text: "You get setback in points!",
+            image: "images/banana.png"
+        },
+        Rocket: {
+            text: "Provides a boost, propelling you forward at super high speed.",
+            image: "images/rocket.png"
+        }
     };
 
     // Add event listeners to each clickable word
@@ -290,9 +309,12 @@ function setupWordInteractivity() {
     words.forEach(word => {
         word.addEventListener('click', () => {
             const wordId = word.id; 
-            const infoText = infoData[wordId]; // Get corresponding info
-            if (infoText) {
-                infoContainer.innerHTML = `<p>${infoText}</p>`;
+            const info = infoData[wordId]; // Get corresponding info
+            if (info) {
+                infoContainer.innerHTML = `
+                    <p>${info.text}</p>
+                    ${info.image ? `<img src="${info.image}" alt="${wordId}" style="max-width: 100%; margin-top: 10px;">` : ""}
+                `;
             } else {
                 infoContainer.innerHTML = "<p>No information available.</p>";
             }

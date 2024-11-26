@@ -19,14 +19,15 @@ body {
     background: rgba(0, 0, 0, 0.5); 
     color: white;
     width: 100%;
+    font-family: 'Knight Warrior', sans-serif;
 }
 
 .headerStyle {
-    font-family: 'Impact', 'Arial Black', sans-serif;
+    font-family: 'Knight Warrior', sans-serif;
     font-size: 4rem;
-    color: #ffffff;
-    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff4500, 0 0 30px #ff8c00,
-                 0 0 40px #ff8c00, 0 0 70px #ffa500, 0 0 80px #ffa500;
+    color: #e9e6e6;
+    text-shadow: 0 0 10px #b10505, 0 0 20px #b10505, 0 0 30px #b10505,
+                 0 0 40px #661d18, 0 0 70px #661d18, 0 0 80px #661d18;
     animation: glowPulse 1.5s infinite alternate;
 }
 
@@ -43,13 +44,17 @@ body {
 
 .about {
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.0rem;
     text-align: center;
     background-color: #ffffff;
     background: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding: 20px;
+}
+
+.about h2, .app-container h1 {
+    font-family: 'Super Pixel', sans-serif;
 }
 
 .app-container {
@@ -92,6 +97,21 @@ img {
     margin-top: 15px;
     border-radius: 8px;
 }
+
+@font-face {
+    font-family: 'Knight Warrior';
+    src: url('fonts/KnightWarriorFont.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Super Pixel';
+    src: url('fonts/SuperPixel.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
 
 @keyframes glowPulse {
     0% { text-shadow: 0 0 5px #ff0000, 0 0 10px #ff4500, 0 0 15px #ff8c00, 

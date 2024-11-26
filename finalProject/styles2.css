@@ -24,6 +24,10 @@ body {
     gap: 100px;
 }
 
+.section h1 {
+    font-family: 'Juvanze', sans-serif;
+}
+
 .character-container {
     color: white;
     display: flex;
@@ -83,9 +87,15 @@ body {
 
 .text-line {
     display: flex;
-    gap: 50px;
+    gap: 30px;
     margin-top: 20px;
     margin-bottom: 20px;
+    font-family: 'Super Pixel', sans-serif;
+}
+
+.text-container h1 {
+    font-family: 'Juvanze', sans-serif;
+    font-size: 50px;
 }
 
 .clickable-word {
@@ -103,6 +113,11 @@ body {
     padding-top: 10px;
     font-size: 16px;
     color: #ffffff;
+}
+
+.LapsContainer {
+    color: white;
+    font-size: 48px;
 }
 
 #readyButton, #continueButton {
@@ -123,4 +138,18 @@ body {
 
 #continueButton {
     display: none;
+}
+
+@font-face {
+    font-family: 'Super Pixel';
+    src: url('fonts/SuperPixel.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Juvanze';
+    src: url('fonts/juvanze.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
 }
