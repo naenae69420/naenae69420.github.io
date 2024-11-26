@@ -324,7 +324,7 @@ function setupWordInteractivity() {
             const info = infoData[wordId]; // Get corresponding info
             if (info) {
                 infoContainer.innerHTML = `
-                    <p>${info.text}</p>
+                    <p style="font-size: 1.5rem">${info.text}</p>
                     ${info.image ? `<img src="${info.image}" alt="${wordId}" style="max-width: 100%; margin-top: 10px;">` : ""}
                 `;
             } else {
