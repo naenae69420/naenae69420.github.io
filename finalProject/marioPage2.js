@@ -137,6 +137,8 @@ function handleLap() {
 
             if (character.total >= goal && !rankedPlayers.includes(character.name)) {
                 rankedPlayers.push(character.name);
+
+                character.finishLap = currentLap;
             
                 const rankingsContainer = document.getElementById('final-rankings-container');
                 const rankAnnouncement = document.createElement('p');
@@ -176,11 +178,12 @@ function handleLap() {
             return {
                 name: character.name,
                 speed: character.speed,
-                total: character.total
+                total: character.total,
+                finishLap: character.finishLap
             };
         });
-        
         localStorage.setItem('topThreePlayers', JSON.stringify(topThree));
+        localStorage.setItem('allRankedPlayers', JSON.stringify(topThree));
 
         const continueButton = document.getElementById('continueButton');
         continueButton.style.display = 'block';
