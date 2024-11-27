@@ -133,21 +133,6 @@ h2.title {
     gap: 40px;
 }
 
-@keyframes slideInScale {
-    0% {
-        opacity: 0;
-        transform: translateX(-100%) scale(0.5);
-    }
-    50% {
-        opacity: 1;
-        transform: translateX(20px) scale(1.1);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0) scale(1);
-    }
-}
-
 #playAgainButton {
     animation-delay: 0.5s;
 }
@@ -269,4 +254,19 @@ h2.title {
     src: url('fonts/KnightWarriorFont.otf') format('truetype');
     font-weight: normal;
     font-style: normal;
+}
+
+@keyframes slideInScale {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%) scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(20px) scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
 }

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
    const topThree = JSON.parse(localStorage.getItem('topThreePlayers')) || [];
 
    displayTopThree(topThree);
-
+    //get ranked players
    const allRankedPlayers = JSON.parse(localStorage.getItem('allRankedPlayers')) || [];
 
    listRaceParticipants(allRankedPlayers);
