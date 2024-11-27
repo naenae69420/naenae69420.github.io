@@ -362,20 +362,25 @@ function applyPowerUp(character, powerUp) {
             break;
 
         case "Shell": 
-            const nonFinishedPlayers = characters.filter(player => !rankedPlayers.includes(player.name));
-            if (nonFinishedPlayers.length > 1) {
-                const lastPlacePlayer = nonFinishedPlayers.reduce((prev, curr) => (curr.total < prev.total ? curr : prev));
-                const target = nonFinishedPlayers
+        const nonFinishedPlayers = characters.filter(player => !rankedPlayers.includes(player.name));
+        if (nonFinishedPlayers.length > 1) {
+               
+            const validTargets = nonFinishedPlayers.filter(player => player.name !== character.name);
+        
+            if (validTargets.length > 0) {
+  
+                const lastPlacePlayer = validTargets.reduce((prev, curr) => (curr.total < prev.total ? curr : prev));
+                const target = validTargets
                     .filter(player => player.name !== lastPlacePlayer.name) 
                     .reduce((prev, curr) => (curr.total > prev.total ? curr : prev), { total: -1 }); 
-
+        
                 if (target && target.total > 0) {
                     target.total -= target.speed * 150;
                     if (target.total < 0) {
                         target.total = 0; 
                     }
-
-                
+        
+             
                     const shellMessage = document.createElement('p');
                     shellMessage.id = 'shell-message';
                     shellMessage.innerHTML = `<strong style="color: #e1a126;">${target.name}</strong> was hit by a <strong style="color: #e1a126;">Shell</strong>! Points reduced by <strong style="color: red;">${(target.speed * 150).toFixed(2)}</strong>.`;
@@ -384,6 +389,7 @@ function applyPowerUp(character, powerUp) {
                     currentLapPowerupContainer.appendChild(shellMessage);
                 }
             }
+        }
             break;
     }
 }
