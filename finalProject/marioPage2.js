@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const sound = document.getElementById('marioSoundTrack');
     const characterName = localStorage.getItem('selectedCharacter');
 
     if (!characterName) {
