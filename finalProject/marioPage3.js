@@ -47,46 +47,52 @@ document.addEventListener('DOMContentLoaded', () => {
     }
    
     function listRaceParticipants(allRankedPlayers) {
-   
-        
         const participantsListContainer = document.getElementById('race-participants-list');
         const participantsList = document.getElementById('participants-list');
-    
-      
-        participantsList.innerHTML = '';
-    
         
+        participantsList.innerHTML = '';
+
+        const favoredRankings = JSON.parse(localStorage.getItem('favored'));
+        const myName = favoredRankings && Array.isArray(favoredRankings) ? favoredRankings[0].name : ''; 
+    
         const sortedPlayers = allRankedPlayers.sort((a, b) => 
             (a.finishLap || a.finishRank || Infinity) - (b.finishLap || b.finishRank || Infinity)
         );
-    
+        
         sortedPlayers.forEach((player, index) => {
             const playerEntry = document.createElement('li');
-            playerEntry.innerHTML = `<strong>${index + 1}</strong>. <strong style="color: gold;">${player.name}</strong> - Lap ${player.finishLap}`;
+            const nameColor = player.name === myName ? 'red' : 'gold';
+            const playerName = player.name === myName ? `${player.name} (You)` : player.name;
+    
+            playerEntry.innerHTML = `<strong>${index + 1}</strong>. <strong style="color: ${nameColor};">${playerName}</strong> - Lap ${player.finishLap}`;
             participantsList.appendChild(playerEntry);
         });
     }
+    
 
     function listFavoredRankings() {
         const favoredRankings = JSON.parse(localStorage.getItem('favored'));
-        
         if (favoredRankings && Array.isArray(favoredRankings)) {
-   
-            const favoredRankingsList = document.getElementById('favored-rankings-list');
-
-            favoredRankingsList.innerHTML = '';
- 
-            const sortedPlayers = favoredRankings.sort((a, b) => b.speed - a.speed);
-  
-            sortedPlayers.forEach((player, index) => {
-                const playerEntry = document.createElement('li');
-                playerEntry.innerHTML = `<strong>${index + 1}</strong>. <strong style="color: gold;">${player.name}</strong> - Speed: ${player.speed}`;
-                favoredRankingsList.appendChild(playerEntry);
-            });
+          const myName = favoredRankings[0].name; 
+          const favoredRankingsList = document.getElementById('favored-rankings-list');
+          favoredRankingsList.innerHTML = '';
+          
+          const sortedPlayers = favoredRankings.sort((a, b) => b.speed - a.speed);
+          
+          sortedPlayers.forEach((player, index) => {
+            const playerEntry = document.createElement('li');
+            const nameColor = player.name === myName ? 'red' : 'gold';
+            const playerName = player.name === myName ? `${player.name} (You)` : player.name;
+            
+            playerEntry.innerHTML = `<strong>${index + 1}</strong>. <strong style="color: ${nameColor};">${playerName}</strong> - Speed: ${player.speed}`;
+            favoredRankingsList.appendChild(playerEntry);
+          });
         } else {
-            console.log("No favored rankings found.");
+          console.log("No favored rankings found.");
         }
-    }
+      }
+      
+
 
 particlesJS('particles-js', {
     particles: {
