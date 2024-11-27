@@ -26,6 +26,10 @@ body {
     animation: glow 2s ease-in-out infinite alternate;
 }
 
+.headerContainer {
+    display: flex;
+}
+
 h2.title {
     color: rgb(139, 132, 132);
     text-align: center;
@@ -151,7 +155,6 @@ h2.title {
 #returnHome {
     animation-delay: 1s;
 }
-
 
 @font-face {
     font-family: 'Super Pixel';

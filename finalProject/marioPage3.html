@@ -14,27 +14,29 @@
     <div id="particles-js"></div>
     <div class="main-container">
         <div class="leftSide">
-            <div class="header glow">
-                Race Results
+            <div class=headerContainer>
+                <div class="header glow">
+                    Race Results
+                </div>
+                <div class="trophy-container">
+                    <img src="images/trophy.png" alt="Trophy" class="spinning-trophy" />
+                </div>
             </div>
+
             <div id="podium-container"></div>
-    
+
             <div class="buttonArea">
                 <button id="playAgainButton" onclick="window.location.href='marioPage2.html'">Play Again</button>
                 <button id="returnHome" onclick="window.location.href='marioPage1.html'">Main Menu</button>
             </div>
         </div>
-    
+
         <div class="rightSide">
             <div id="race-participants-list" class="race-participants-container">
                 <h3>Final Rankings</h3>
                 <ul id="participants-list"></ul>
                 <h3>Favored Rankings</h3>
                 <ul id="favored-rankings-list"></ul>
-
-                <div class="trophy-container">
-                    <img src="images/trophy.png" alt="Trophy" class="spinning-trophy" />
-                </div>
             </div>
         </div>
     </div>
