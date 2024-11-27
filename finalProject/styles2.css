@@ -26,6 +26,7 @@ body {
 
 .section h1 {
     font-family: 'Juvanze', sans-serif;
+    border-radius: 10px 10px 0px 0px;
 }
 
 .character-container {
@@ -36,6 +37,7 @@ body {
     justify-content: start; 
     padding: 10px;
     background: rgba(0, 0, 0, 0.5);
+    border-radius: 0px 0px 10px 10px;
 }
 
 .character-container div {
@@ -46,7 +48,6 @@ body {
     justify-content: center; 
     align-items: center;
     text-align: center;
-    border-radius: 8px;
     padding: 10px;
 }
 

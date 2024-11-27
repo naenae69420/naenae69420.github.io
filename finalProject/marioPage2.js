@@ -385,7 +385,7 @@ function applyPowerUp(character, powerUp) {
              
                     const shellMessage = document.createElement('p');
                     shellMessage.id = 'shell-message';
-                    shellMessage.innerHTML = `<strong style="color: #e1a126;">${target.name}</strong> was hit by a <strong style="color: #e1a126;">Shell</strong>! Points reduced by <strong style="color: red;">${(target.speed * 150).toFixed(2)}</strong>.`;
+                    shellMessage.innerHTML = `<strong style="color: Red;">${target.name}</strong> was hit by a <strong style="color: #e1a126;">Shell</strong>! Points reduced by <strong style="color: red;">${(target.speed * 150).toFixed(2)}</strong>.`;
                     shellMessage.style.fontSize = "20px";
                     shellMessage.style.color = "#ffffff";
                     currentLapPowerupContainer.appendChild(shellMessage);
