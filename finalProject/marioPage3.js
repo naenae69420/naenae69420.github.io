@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
    const allRankedPlayers = JSON.parse(localStorage.getItem('allRankedPlayers')) || [];
 
    listRaceParticipants(allRankedPlayers);
+   listFavoredRankings();
    });
    
    async function displayTopThree(topThree) {
@@ -86,8 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log("No favored rankings found.");
         }
     }
-    
-    window.onload = listFavoredRankings;
 
 particlesJS('particles-js', {
     particles: {
