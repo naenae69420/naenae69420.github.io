@@ -1,6 +1,17 @@
 let characterCache = {};
 
 document.addEventListener('DOMContentLoaded', () => {
+    let music = document.getElementById("marioSpringTrack");
+    let musicToggleImage = document.getElementById("musicToggle");
+    music.volume = 0.3;
+    musicToggleImage.addEventListener("click", function () {
+        if (music.paused) {
+            music.play();
+        } else {
+            music.pause();
+        }
+    });
+
     // Use Promise.all for parallel loading and implement a timeout
     Promise.race([
         preloadCharacterData(),

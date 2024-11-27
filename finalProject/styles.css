@@ -22,6 +22,25 @@ body {
     font-family: 'Knight Warrior', sans-serif;
 }
 
+.music-control {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    z-index: 1000;
+}
+
+#musicToggle {
+    width: 65px;
+    height: 65px;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+#musicToggle:hover {
+    transform: scale(1.2);
+    opacity: 0.7;
+}
+
 @keyframes lightSweep {
     0% {
         background-position: -200% center;

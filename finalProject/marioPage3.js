@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const audio = document.getElementById('pageLoadSound');
+    audio.volume = 0.3;
+    audio.play().catch(error => console.log('Autoplay blocked:', error));
     // Get top 3 characters from localStorage
    const topThree = JSON.parse(localStorage.getItem('topThreePlayers')) || [];
    // Display top 3 characters
