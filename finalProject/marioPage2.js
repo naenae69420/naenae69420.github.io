@@ -74,7 +74,7 @@ async function fetchCharacterData(characterName, container) {
             return;
         }
 
-        const speed = (Math.random() * 0.9 + 0.1).toFixed(2);
+        const speed = (Math.random() * 0.8 + 0.2).toFixed(2);
 
         const characterNameCapitalized = capitalizeFirstLetter(data.name);
 
@@ -132,8 +132,8 @@ function updateInfoContainer() {
 function handleLap() {
     const goal = 500;
 
-    if (currentLap === 5 || currentLap === 10 || currentLap === 15 || currentLap === 20) {
-        assignPowerUps();
+    if (currentLap % 5 === 0) {
+            assignPowerUps();
     }
 
     characters.forEach(character => {
@@ -220,50 +220,112 @@ function getOrdinal(n) {
 
 function assignPowerUps() {
     const rankingsContainer = document.getElementById('final-rankings-container');
-        const topDivider = document.createElement('p');
+    let topDivider = rankingsContainer.querySelector('#top-divider');
+    if (!topDivider) {
+        topDivider = document.createElement('p');
+        topDivider.id = 'top-divider';
         topDivider.textContent = '-----------------------------------------------------------------------------------------';
         topDivider.style.color = 'white';
         rankingsContainer.appendChild(topDivider);
+    }
+    
+    let currentLapPowerupContainer = document.getElementById('current-lap-powerup-container');
+    if (!currentLapPowerupContainer) {
+        currentLapPowerupContainer = document.createElement('div');
+        currentLapPowerupContainer.id = 'current-lap-powerup-container';
+        rankingsContainer.appendChild(currentLapPowerupContainer);
+    }
+
+    currentLapPowerupContainer.innerHTML = '';
+
+    let lapPowerupHeading = currentLapPowerupContainer.querySelector('h2');
+    if (!lapPowerupHeading) {
+        lapPowerupHeading = document.createElement('h2');
+        lapPowerupHeading.style.color = 'white';
+        lapPowerupHeading.style.fontSize = '28px';
+        currentLapPowerupContainer.appendChild(lapPowerupHeading);
+    }
+    lapPowerupHeading.textContent = `Lap ${currentLap} Powerups`;
 
     characters.forEach(character => {
-        const powerUp = getRandomPowerUp();
-        console.log(powerUp);
+        if (!rankedPlayers.includes(character.name)) { 
+            const powerUp = getRandomPowerUp();
+            console.log(powerUp);
 
-        const powerUpMessage = document.createElement('p');
-        powerUpMessage.innerHTML = `<strong style="color: #e1a126;">${character.name}</strong> received a power-up: <strong style="color: #e1a126;">${powerUp}</strong>`;
-        powerUpMessage.style.fontSize = "20px";
-        powerUpMessage.style.color = "#ffffff";
+            const powerUpMessage = document.createElement('p');
+            powerUpMessage.innerHTML = `<strong style="color: #e1a126;">${character.name}</strong> received a power-up: <strong style="color: #e1a126;">${powerUp}</strong>`;
+            powerUpMessage.style.fontSize = "20px";
+            powerUpMessage.style.color = "#ffffff";
 
-        rankingsContainer.appendChild(powerUpMessage);
+            currentLapPowerupContainer.appendChild(powerUpMessage);
 
-        applyPowerUp(character, powerUp);
+            applyPowerUp(character, powerUp);
+        }
     });
 
-    const bottomDivider = document.createElement('p');
-    bottomDivider.textContent = '-----------------------------------------------------------------------------------------';
-    bottomDivider.style.color = 'white';
-    rankingsContainer.appendChild(bottomDivider);
+    let bottomDivider = rankingsContainer.querySelector('#bottom-divider');
+    if (!bottomDivider) {
+        bottomDivider = document.createElement('p');
+        bottomDivider.id = 'bottom-divider';
+        bottomDivider.textContent = '-----------------------------------------------------------------------------------------';
+        bottomDivider.style.color = 'white';
+        rankingsContainer.appendChild(bottomDivider);
+    }
 }
 
+
+
+
 function getRandomPowerUp() {
-    const powerUps = ["Speed Boost", "Empty", "Banana", "Rocket", "Slow"];
-    const randomIndex = Math.floor(Math.random() * powerUps.length);
-    return powerUps[randomIndex];
+    const powerUps = [
+        { name: "Speed Boost", chance: 0.2 }, // 20% chance
+        { name: "Empty", chance: 0.2 },       // 20% chance
+        { name: "Banana", chance: 0.2 },      // 20% chance
+        { name: "Rocket", chance: 0.15 },     // 15% chance
+        { name: "Slow", chance: 0.1 },       // 10% chance
+        { name: "Shell", chance: 0.1 },      // 10% chance
+        { name: "Lightning", chance: 0.05 }   // 5% chance
+    ];
+
+    const randomValue = Math.random(); 
+    let cumulativeChance = 0;
+
+    for (const powerUp of powerUps) {
+        cumulativeChance += powerUp.chance;
+        if (randomValue <= cumulativeChance) {
+            return powerUp.name;
+        }
+    }
+
+    return "Empty";
 }
 
 function applyPowerUp(character, powerUp) {
+    const rankingsContainer = document.getElementById('final-rankings-container');
+    let currentLapPowerupContainer = document.getElementById('current-lap-powerup-container');
+    
+    // Ensure the container exists
+    if (!currentLapPowerupContainer) {
+        currentLapPowerupContainer = document.createElement('div');
+        currentLapPowerupContainer.id = 'current-lap-powerup-container';
+        rankingsContainer.appendChild(currentLapPowerupContainer);
+    }
+
     switch (powerUp) {
         case "Speed Boost":
             character.speed = (parseFloat(character.speed) + 0.4).toFixed(2); 
             break;
+
         case "Empty":
             break;
+
         case "Banana":
             character.total -= character.speed * 100;
             if (character.total <= 0) {
                 character.total = 0;
             }
             break;
+
         case "Rocket":
             if (character.speed >= 0.45) {
                 character.total += character.speed * 100;
@@ -271,11 +333,58 @@ function applyPowerUp(character, powerUp) {
                 character.total += 200;
             }
             break;
+
         case "Slow":
             character.speed = (parseFloat(character.speed) - 0.25).toFixed(2); 
-            if (character.speed <= 0.2) {
-                character.speed = 0.2;
+            if (character.speed <= 0.25) {
+                character.speed = 0.25;
             }
+            break;
+
+        case "Lightning":
+            
+            characters.forEach(player => {
+                if (player.name !== character.name && !rankedPlayers.includes(player.name)) { 
+                    player.total -= 100;
+                    if (player.total < 0) {
+                        player.total = 0; 
+                    }
+                }
+            });
+
+          
+            const lightningMessage = document.createElement('p');
+            lightningMessage.id = 'lightning-message';
+            lightningMessage.innerHTML = `<strong style="color: red;">All players</strong> except <strong style="color: #e1a126;">${character.name}</strong> were hit by <strong style="color: red;">Lightning</strong>!`;
+            lightningMessage.style.fontSize = "20px";
+            lightningMessage.style.color = "#ffffff";
+            currentLapPowerupContainer.appendChild(lightningMessage);
+            break;
+
+        case "Shell": 
+            const nonFinishedPlayers = characters.filter(player => !rankedPlayers.includes(player.name));
+            if (nonFinishedPlayers.length > 1) {
+                const lastPlacePlayer = nonFinishedPlayers.reduce((prev, curr) => (curr.total < prev.total ? curr : prev));
+                const target = nonFinishedPlayers
+                    .filter(player => player.name !== lastPlacePlayer.name) 
+                    .reduce((prev, curr) => (curr.total > prev.total ? curr : prev), { total: -1 }); 
+
+                if (target && target.total > 0) {
+                    target.total -= target.speed * 150;
+                    if (target.total < 0) {
+                        target.total = 0; 
+                    }
+
+                
+                    const shellMessage = document.createElement('p');
+                    shellMessage.id = 'shell-message';
+                    shellMessage.innerHTML = `<strong style="color: #e1a126;">${target.name}</strong> was hit by a <strong style="color: #e1a126;">Shell</strong>! Points reduced by <strong style="color: red;">${(target.speed * 150).toFixed(2)}</strong>.`;
+                    shellMessage.style.fontSize = "20px";
+                    shellMessage.style.color = "#ffffff";
+                    currentLapPowerupContainer.appendChild(shellMessage);
+                }
+            }
+            break;
     }
 }
 
@@ -299,7 +408,7 @@ function setupWordInteractivity() {
             image: "images/empty.png"
         },
         Boost: {
-            text: "Gives your character a speed increase for a short time.",
+            text: "Gives your character a speed increase",
             image: "images/boost.png"
         },
         Slow: {
@@ -313,6 +422,14 @@ function setupWordInteractivity() {
         Rocket: {
             text: "Provides a boost, propelling you forward at super high speed.",
             image: "images/rocket.png"
+        },
+        Lightning: {
+            text: "Shocks all players except yourself, reducing everyone else's points!",
+            image: "images/lightning.png"
+        },
+        Shell: {
+            text: "Devastatingly takes points off player in the lead!",
+            image: "images/Shell.png"
         }
     };
 

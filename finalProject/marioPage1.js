@@ -55,8 +55,7 @@ async function apiData() {
             populateCharacterDetails(cachedCharacter);
             return;
         }
-
-        // On-demand loading with timeout
+        
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 3000);
 
@@ -77,7 +76,7 @@ async function apiData() {
         populateCharacterDetails(data);
     } catch (error) {
         console.error("Error fetching character data:", error);
-        alert("Unable to load character. Please try again.");
+        alert("Please wait around 30 seconds for data to load! Only needed on the first try");
     }
 }
 
@@ -87,16 +86,11 @@ function populateCharacterDetails(data) {
     const originElement = document.getElementById('origin');
     const imageElement = document.getElementById('character-image');
 
-    // Use optional chaining and nullish coalescing for safer access
     nameElement.innerText = capitalizeFirstLetter(data.name ?? 'Unknown');
     strengthElement.innerText = data.strength ?? 'N/A';
     originElement.innerText = data.origin ?? 'Unknown';
     
-    // Add error handling for image loading
     imageElement.src = data.image ?? '';
-    imageElement.onerror = () => {
-        imageElement.src = 'placeholder-image.png'; // Fallback image
-    };
 
     toggleContinueButton(true);
 }
@@ -120,7 +114,7 @@ function saveCharacter() {
     }
 }
 
-// Improved debounce with more flexible implementation
+// For loading
 function debounce(func, delay) {
     let debounceTimer;
     return function() {
