@@ -58,14 +58,17 @@ h2.title {
     order: 2;
     transform: scale(1.2);
     margin-bottom: 40px;
+    animation-delay: 2.5s;
 }
 
 .second-place {
     order: 1;
+    animation-delay: 1.5s;
 }
 
 .third-place {
     order: 3;
+    animation-delay: 0.5s;
 }
 
 .character-card {
@@ -108,6 +111,9 @@ h2.title {
     text-transform: uppercase;
     transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 5px 0 #380303;
+    opacity: 0;
+    transform: scale(0.5);
+    animation: slideInScale 1s forwards;
 }
 
 #playAgainButton:hover,
@@ -121,6 +127,29 @@ h2.title {
     display: flex;
     justify-content: center;
     gap: 40px;
+}
+
+@keyframes slideInScale {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%) scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(20px) scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+#playAgainButton {
+    animation-delay: 0.5s;
+}
+
+#returnHome {
+    animation-delay: 1s;
 }
 
 

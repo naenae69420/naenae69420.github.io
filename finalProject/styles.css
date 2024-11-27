@@ -152,6 +152,11 @@ img {
 .vid {
     border: 8px solid #111111; 
     border-radius: 8px; 
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.vid:hover {
+    transform: scale(1.05); 
 }
 
 @font-face {

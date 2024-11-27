@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Use Promise.all for parallel loading and implement a timeout
+    
     Promise.race([
         preloadCharacterData(),
         new Promise((_, reject) => 
@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
         )
     ]).catch(error => {
         console.warn("Character preload failed or timed out:", error);
-        // Fallback to on-demand loading if preload fails
     });
 
     document.getElementById('characterSelect').addEventListener('change', debounce(apiData, 300));
@@ -28,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function preloadCharacterData() {
     try {
-        // Use fetch with timeout and abort controller
+       
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 3000);
 
@@ -40,7 +39,7 @@ async function preloadCharacterData() {
 
         const data = await response.json();
         
-        // Use bulk assignment and reduce for faster processing
+
         characterCache = data.reduce((cache, character) => {
             cache[character.name.toLowerCase()] = character;
             return cache;
@@ -87,7 +86,7 @@ async function apiData() {
         populateCharacterDetails(data);
     } catch (error) {
         console.error("Error fetching character data:", error);
-        alert("Please wait around 30 seconds for data to load! Only needed on the first try");
+        alert("Please allow 30 seconds for the data to load. This only applies the first time; after that, you can select another character.");
     }
 }
 
