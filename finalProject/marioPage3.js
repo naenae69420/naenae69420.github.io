@@ -4,19 +4,19 @@ document.addEventListener('DOMContentLoaded', () => {
     audio.play().catch(error => console.log('Autoplay blocked:', error));
     // Get top 3 characters from localStorage
    const topThree = JSON.parse(localStorage.getItem('topThreePlayers')) || [];
-   // Display top 3 characters
+
    displayTopThree(topThree);
-   
-   // Get all characters from localStorage
+
    const allRankedPlayers = JSON.parse(localStorage.getItem('allRankedPlayers')) || [];
-   // List all race participants
+
    listRaceParticipants(allRankedPlayers);
    });
    
    async function displayTopThree(topThree) {
    const podiumContainer = document.getElementById('podium-container');
    if (!podiumContainer) return;
-   // Create podium display
+
+
    const podiumPositions = [
     { place: '1st', className: 'first-place' },
     { place: '2nd', className: 'second-place' },
@@ -61,10 +61,33 @@ document.addEventListener('DOMContentLoaded', () => {
     
         sortedPlayers.forEach((player, index) => {
             const playerEntry = document.createElement('li');
-            playerEntry.innerHTML = `<strong">${index + 1}</strong>. <strong style="color: gold;">${player.name}</strong> - Lap ${player.finishLap}`;
+            playerEntry.innerHTML = `<strong>${index + 1}</strong>. <strong style="color: gold;">${player.name}</strong> - Lap ${player.finishLap}`;
             participantsList.appendChild(playerEntry);
         });
     }
+
+    function listFavoredRankings() {
+        const favoredRankings = JSON.parse(localStorage.getItem('favored'));
+        
+        if (favoredRankings && Array.isArray(favoredRankings)) {
+   
+            const favoredRankingsList = document.getElementById('favored-rankings-list');
+
+            favoredRankingsList.innerHTML = '';
+ 
+            const sortedPlayers = favoredRankings.sort((a, b) => b.speed - a.speed);
+  
+            sortedPlayers.forEach((player, index) => {
+                const playerEntry = document.createElement('li');
+                playerEntry.innerHTML = `<strong>${index + 1}</strong>. <strong style="color: gold;">${player.name}</strong> - Speed: ${player.speed}`;
+                favoredRankingsList.appendChild(playerEntry);
+            });
+        } else {
+            console.log("No favored rankings found.");
+        }
+    }
+    
+    window.onload = listFavoredRankings;
 
 particlesJS('particles-js', {
     particles: {

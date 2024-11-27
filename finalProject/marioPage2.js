@@ -60,6 +60,15 @@ async function displayCharacters(selectedCharacter, randomCharacters) {
         await fetchCharacterData(char, randomCharDiv);
         opponentContainer.appendChild(randomCharDiv);
     }
+
+    const favoredRankings = characters.map(character => {
+        return {
+            name: character.name,
+            speed: character.speed
+        };
+    });
+
+    localStorage.setItem('favored', JSON.stringify(favoredRankings));
 }
 
 function capitalizeFirstLetter(name) {
