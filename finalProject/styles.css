@@ -159,6 +159,10 @@ img {
     transform: scale(1.05); 
 }
 
+#results {
+    display: none;
+}
+
 @font-face {
     font-family: 'Knight Warrior';
     src: url('fonts/KnightWarriorFont.otf') format('truetype');

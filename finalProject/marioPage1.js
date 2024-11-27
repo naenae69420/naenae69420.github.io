@@ -55,6 +55,7 @@ async function apiData() {
     
     if (!characterName) {
         toggleContinueButton(false);
+        hideCharacterDetails();
         return;
     }
 
@@ -101,7 +102,7 @@ function populateCharacterDetails(data) {
     originElement.innerText = data.origin ?? 'Unknown';
     
     imageElement.src = data.image ?? '';
-
+    showCharacterDetails();
     toggleContinueButton(true);
 }
 
@@ -114,6 +115,14 @@ function toggleContinueButton(enable) {
     continueButton.disabled = !enable;
     continueButton.style.pointerEvents = enable ? 'auto' : 'none';
     continueButton.style.display = enable ? 'inline-block' : 'none';
+}
+
+function showCharacterDetails() {
+    document.getElementById('results').style.display = 'block'; 
+}
+
+function hideCharacterDetails() {
+    document.getElementById('results').style.display = 'none'; 
 }
 
 function saveCharacter() {
