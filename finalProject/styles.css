@@ -22,13 +22,24 @@ body {
     font-family: 'Knight Warrior', sans-serif;
 }
 
+@keyframes lightSweep {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
 .headerStyle {
     font-family: 'Knight Warrior', sans-serif;
     font-size: 4rem;
-    color: #e9e6e6;
-    text-shadow: 0 0 10px #b10505, 0 0 20px #b10505, 0 0 30px #b10505,
-                 0 0 40px #661d18, 0 0 70px #661d18, 0 0 80px #661d18;
-    animation: glowPulse 1.5s infinite alternate;
+    animation: lightSweep 10s ease-in-out infinite;
+    text-shadow: 0px 0 10px rgba(20, 192, 204, 0.7); 
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+    background-size: 200% 100%; 
+    -webkit-background-clip: text; 
+    color: transparent; 
 }
 
 .bothSides {
@@ -56,6 +67,7 @@ body {
 .about h2, .app-container h1 {
     font-family: 'Super Pixel', sans-serif;
     color: #c5bfbf;
+    text-shadow: 0px 0 10px rgba(20, 192, 204, 0.7);
 }
 
 .app-container {
@@ -112,6 +124,7 @@ img {
     font-family: 'Super Pixel';
     color: #c5bfbf;
     font-size: 2rem;
+    text-shadow: 0px 0 10px rgba(20, 192, 204, 0.7);
 }
 .kartSection p {
     color: white;
@@ -136,10 +149,3 @@ img {
     font-style: normal;
 }
 
-
-@keyframes glowPulse {
-    0% { text-shadow: 0 0 5px #001aff, 0 0 10px #001aff, 0 0 15px #001aff, 
-        0 0 20px #071044, 0 0 35px #071044, 0 0 40px #071044; }
-    100% { text-shadow: 0 0 15px #0099ff, 0 0 25px #0099ff, 0 0 35px #0099ff, 
-        0 0 50px #071044, 0 0 70px #071044, 0 0 90px #071044; }
-}

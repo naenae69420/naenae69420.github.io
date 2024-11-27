@@ -42,7 +42,7 @@ async function displayCharacters(selectedCharacter, randomCharacters) {
     selectedCharacterContainer.innerHTML = '';
 
     const selectedCharDiv = document.createElement('div');
-    selectedCharDiv.classList.add('character');
+    selectedCharDiv.classList.add('character', 'selected');
     
     await fetchCharacterData(selectedCharacter, selectedCharDiv);
 
