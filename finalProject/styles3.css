@@ -81,7 +81,7 @@ h2.title {
     padding: 20px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 6px solid rgba(80, 75, 99, 0.7);
+    border: 6px solid rgba(99, 77, 75, 0.7);
 }
 
 .character-card:hover {
@@ -217,7 +217,45 @@ h2.title {
     background: linear-gradient(to right, #9e6d62, #dbc1ba);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
+    position: relative;
+  }
+  
+  .rightSide h3::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    color: transparent;
+    text-shadow: 
+      -1px -1px 0 red,
+      1px -1px 0 red,
+      -1px 1px 0 red,
+      1px 1px 0 red;
+    animation: letter-glow 1.5s infinite alternate;
+    pointer-events: none;
+  }
+  
+  @keyframes letter-glow {
+    0%, 100% {
+      text-shadow: 
+        -1px -1px 0 red,
+        1px -1px 0 red,
+        -1px 1px 0 red,
+        1px 1px 0 red,
+        0 0 5px rgba(255, 0, 0, 0.5),
+        0 0 10px rgba(255, 0, 0, 0.3);
+    }
+    50% {
+      text-shadow: 
+        -2px -2px 0 red,
+        2px -2px 0 red,
+        -2px 2px 0 red,
+        2px 2px 0 red,
+        0 0 8px rgba(255, 0, 0, 0.7),
+        0 0 15px rgba(255, 0, 0, 0.5);
+    }
+  }
 
 @keyframes glow {
     from {
