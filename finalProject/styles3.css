@@ -51,7 +51,7 @@ h2.title {
 .podium-position {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
     min-width: 250px;
     max-width: 300px;
     margin: 10px;
