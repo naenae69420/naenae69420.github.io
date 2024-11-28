@@ -14,37 +14,50 @@ document.addEventListener('DOMContentLoaded', () => {
    });
    
    async function displayTopThree(topThree) {
-   const podiumContainer = document.getElementById('podium-container');
-   if (!podiumContainer) return;
-
-
-   const podiumPositions = [
-    { place: '1st', className: 'first-place' },
-    { place: '2nd', className: 'second-place' },
-    { place: '3rd', className: 'third-place' }
+    const podiumContainer = document.getElementById('podium-container');
+    if (!podiumContainer) return;
+ 
+    const podiumPositions = [
+     { place: '1st', className: 'first-place', imageUrl: 'images/first.png' },
+     { place: '2nd', className: 'second-place', imageUrl: 'images/second.png' },
+     { place: '3rd', className: 'third-place', imageUrl: 'images/third.png' }
     ];
-   for (let i = 0; i < Math.min(3, topThree.length); i++) {
-   const character = topThree[i];
-   try {
-   // Fetch character data from API
-   const response = await fetch(`https://super-mario-bros-character-api.onrender.com/api/${character.name}`);
-   const data = await response.json();
-   const characterDiv = document.createElement('div');
-   characterDiv.className = `podium-position ${podiumPositions[i].className}`;
-   characterDiv.innerHTML = `
-        <h3 style="color: white; text-align: center;">${podiumPositions[i].place} Place</h3>
-        <div class="character-card">
-        <h4 style="color: white;">${data.name}</h4>
-        <img src="${data.image}" alt="${data.name}" style="max-height: 150px; width: auto;">
-        <p style="color: white;">Final Speed: ${character.speed}</p>
-        </div>
-    `;
-   podiumContainer.appendChild(characterDiv);
-    } catch (error) {
-   console.error(`Error fetching data for ${character.name}:`, error);
+ 
+    for (let i = 0; i < Math.min(3, topThree.length); i++) {
+       const character = topThree[i];
+       try {
+          // Fetch character data from API
+          const response = await fetch(`https://super-mario-bros-character-api.onrender.com/api/${character.name}`);
+          const data = await response.json();
+ 
+          const characterDiv = document.createElement('div');
+          characterDiv.className = `podium-position ${podiumPositions[i].className}`;
+ 
+          // Create an image element for the place
+          const placeImage = document.createElement('img');
+          placeImage.src = podiumPositions[i].imageUrl;
+          placeImage.alt = `${podiumPositions[i].place} Place`;
+          placeImage.style = "max-height: 50px; width: auto; display: block; margin: 0 auto;";
+ 
+          // Add the content inside the character card
+          characterDiv.innerHTML = `
+             <div class="character-card">
+             <h4 style="color: white; text-align: center; font-weight: bold;">${data.name}</h4>
+             <img src="${data.image}" alt="${data.name}" style="max-height: 150px; width: auto; display: block; margin: 0 auto;">
+             <p style="color: white; font-weight: bold; text-align: center;">Final Speed: ${character.speed}</p>
+             </div>
+          `;
+          
+          // Add place image at the top
+          characterDiv.prepend(placeImage);
+          
+          // Append to the podium container
+          podiumContainer.appendChild(characterDiv);
+       } catch (error) {
+          console.error(`Error fetching data for ${character.name}:`, error);
+       }
     }
-    }
-    }
+ }
    
     function listRaceParticipants(allRankedPlayers) {
         const participantsListContainer = document.getElementById('race-participants-list');
