@@ -48,7 +48,7 @@ async function preloadCharacterData() {
         console.warn("Partial or failed character preload:", error);
     }
 }
-
+//API CODE USED HERE, minor edits
 async function apiData() {
     const characterSelect = document.querySelector('#characterSelect');
     const characterName = characterSelect.value.toLowerCase();
@@ -61,12 +61,12 @@ async function apiData() {
 
     try {
         const cachedCharacter = characterCache[characterName];
-        
+        //Loads api data
         if (cachedCharacter) {
             populateCharacterDetails(cachedCharacter);
             return;
         }
-        
+        //in case time takes too long, after 3 seconds
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 3000);
 
@@ -86,11 +86,11 @@ async function apiData() {
         characterCache[characterName] = data;
         populateCharacterDetails(data);
     } catch (error) {
-        console.error("Error fetching character data:", error);
+        console.error("Error", error);
         alert("Please allow 30 seconds for the data to load. This only applies the first time; after that, you can select another character.");
     }
 }
-
+//API CODE USED HERE, for loading items and storing
 function populateCharacterDetails(data) {
     const nameElement = document.getElementById('name');
     const strengthElement = document.getElementById('strength');
